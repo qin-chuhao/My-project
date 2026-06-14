@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.demo.shop.module.mapper.ProductMapper">
+
+    <insert id="insert">
+       insert into product (cover_images,title,product_price,product_detail,create_time,update_time,is_deleted)
+        values(#{product.coverImages},#{product.title},#{product.productPrice},#{product.productDetail},#{product.createTime},#{product.updateTime},#{product.isDeleted})
+    </insert>
+
+    <update id="update">
+        update product set cover_images=#{product.coverImages},
+                           title=#{product.title},
+                           product_price=#{product.productPrice},
+                           product_detail=#{product.productDetail},
+                           update_time=#{product.updateTime}
+        where id=#{product.id} and is_deleted=0
+
+    </update>
+
+
+</mapper>
+
